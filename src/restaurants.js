@@ -25,3 +25,18 @@ export const addRestaurant = async (req, res) => {
     res.status(500).send(err);
   }
 };
+
+export const getAllRestaurants = async (req, res) => {
+  const db = connectDb();
+  try {
+    const snapshot = await db.collection("restaurants").get();
+    const restaurantsArray = snapshot.docs.map((doc) => {
+      let Restaurant = doc.data();
+      restaurant.id = doc.id;
+      return restaurant;
+    });
+    res.send(restaurantsArray);
+  } catch (err) {
+    res.status(500).send(err);
+  }
+};
