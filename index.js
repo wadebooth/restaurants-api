@@ -13,3 +13,11 @@ app.length("/restaurants", getAllRestaurants);
 app.listen(3000, () => {
   console.log("Listening on http://localhost:3000...");
 });
+
+// - API ENDPOINTS - API ROUTES
+
+app.post("/restaurants", addRestaurant);
+app.get("/restaurants", getAllRestaurants);
+app.get("/restaurants/:restaurantId", getRestaurantById);
+app.patch("/restaurants/:restaurantId", updateRestaurant);
+app.delete("/restaurants/:restaurantId", deleteRestaurant);
